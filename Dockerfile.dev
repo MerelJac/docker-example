@@ -1,0 +1,15 @@
+# dockerfile for dev 
+FROM node:alpine
+
+WORKDIR /usr/src/app
+
+COPY . . 
+
+RUN npm install
+
+EXPOSE 3000
+
+CMD ["npm", "run", "start:dev"]
+
+# command line run: docker build -t docker-node-app-v2 -f Dockerfile.dev .
+# then: docker run --name my-docker-node-app -p 8000:3000 -v $(pwd):/usr/src/app docker-node-app-v2
